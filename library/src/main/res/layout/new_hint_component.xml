@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <danubis.tony.hintcomponent.SimpleHintView
+        android:id="@+id/hint_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <danubis.tony.hintcomponent.HintGridView
+        android:id="@+id/hint_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hint_view"
+        android:background="#00ffffff"
+        android:horizontalSpacing="2dp"
+        android:verticalSpacing="2dp" />
+
+</RelativeLayout>
