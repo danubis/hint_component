@@ -27,8 +27,8 @@ public class HintComponent implements HintListener {
     private SimpleHintView hintView;
     private HintGridView hintGridView;
 
-    public static int screenHeight;
-    public static boolean isExpanded = false;
+    static int screenHeight;
+    static boolean isExpanded = false;
 
     private HintComponentListener hintComponentListener;
 
@@ -144,6 +144,11 @@ public class HintComponent implements HintListener {
         if (!isExpanded) {
             hintGridView.moveHintGridView();
         }
+    }
+
+
+    public void setVisibility(int visibility) {
+        hintLayout.setVisibility(visibility);
     }
 
 

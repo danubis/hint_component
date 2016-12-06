@@ -39,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
                         hintComponent.updateHintView(generateMap());
                     }
                 });
+
+        findViewById(R.id.hide_button).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        hintComponent.setVisibility(View.GONE);
+                    }
+                });
+
+
     }
 
 
