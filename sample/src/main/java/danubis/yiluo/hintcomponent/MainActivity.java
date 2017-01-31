@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
                 .numColumns(2)
                 .heightPercentage(0.4f)
                 .hintViewHeight(dip2px(25))
+                .screenHeightOffset(0)
                 .hintComponentListener(new HintComponentListener() {
                     @Override
                     public void onHintClicked(String keyword) {

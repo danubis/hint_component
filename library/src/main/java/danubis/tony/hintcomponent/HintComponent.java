@@ -39,10 +39,11 @@ public class HintComponent implements HintListener {
 
         private Activity activity;
 
-        private float heightPercentage;
-        private int hintViewHeight;
-        private int rowHeight;
-        private int numColumns;
+        private float heightPercentage = 0f;
+        private int hintViewHeight = 25;
+        private int rowHeight = 40;
+        private int numColumns = 2;
+        private int offset = 0;
         private HintComponentListener listener;
 
         public Builder(@NonNull Activity activity) {
@@ -74,16 +75,21 @@ public class HintComponent implements HintListener {
             return this;
         }
 
+        public Builder screenHeightOffset(int offset) {
+            this.offset = offset;
+            return this;
+        }
+
         public HintComponent build() {
             return new HintComponent(activity, hintViewHeight,
-                    heightPercentage, numColumns, rowHeight, listener);
+                    heightPercentage, numColumns, rowHeight, offset, listener);
         }
     }
 
 
     private HintComponent(Activity activity, int hintViewHeight,
                           float heightPercentage, int numColumns, int rowHeight,
-                          HintComponentListener hintComponentListener) {
+                          int offset, HintComponentListener hintComponentListener) {
 
         hintLayout = (RelativeLayout) View.inflate(activity, R.layout.new_hint_component, null);
 
@@ -91,7 +97,7 @@ public class HintComponent implements HintListener {
         activity.getWindowManager()
                 .getDefaultDisplay()
                 .getMetrics(displaymetrics);
-        screenHeight = displaymetrics.heightPixels;
+        screenHeight = displaymetrics.heightPixels + offset;
 
         initSimpleHintView(hintViewHeight, numColumns);
         initHintGridView(heightPercentage, numColumns, rowHeight);
